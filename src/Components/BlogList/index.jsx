@@ -5,7 +5,7 @@ import "./style.css"
 
 const BlogList = () => {
   const dispatch = useDispatch()
-  const { blogs, } = useSelector((state) => state.blog)
+  const { blogs} = useSelector((state) => state.blog)
 
   useEffect(() => {
     dispatch(fetchBlogs())
