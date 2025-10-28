@@ -1,9 +1,15 @@
-import { useSelector } from "react-redux"
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { fetchBlogs } from "../../Redux/blogSlice"
 import "./style.css"
 
 const BlogList = () => {
-  const { blogs} = useSelector((state) => state.blog)
+  const dispatch = useDispatch()
+  const { blogs, } = useSelector((state) => state.blog)
 
+  useEffect(() => {
+    dispatch(fetchBlogs())
+  }, [dispatch])
 
   return (
     <div className="blog-list-wrapper">

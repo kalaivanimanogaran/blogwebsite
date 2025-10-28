@@ -1,5 +1,6 @@
 import { useState } from "react"
 import "./style.css"
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -7,6 +8,7 @@ const Contact = () => {
     mobile: "",
     email: "",
   })
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -14,9 +16,28 @@ const Contact = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setFormData({ firstName: "", lastName: "", mobile: "", email: "" })
+
+    try {
+      const response = await fetch("http://localhost:3000/contacts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form")
+      }
+
+      alert("Form submitted successfully ✅")
+
+      // Clear form after submit
+      setFormData({ firstName: "", lastName: "", mobile: "", email: "" })
+    } catch (error) {
+      console.error("Error submitting form:", error)
+      alert("Failed to submit ❌")
+    }
   }
 
   return (

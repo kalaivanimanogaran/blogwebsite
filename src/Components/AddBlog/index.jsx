@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { createBlog } from "../../redux/blogSlice"
+import { addBlog } from "../../Redux/blogSlice"
 import { useNavigate } from "react-router-dom"
 import "./style.css"
 
@@ -17,7 +17,7 @@ const AddBlog = () => {
     setNewBlog({ ...newBlog, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (!newBlog.title || !newBlog.description) {
@@ -25,7 +25,7 @@ const AddBlog = () => {
       return
     }
 
-    dispatch(createBlog(newBlog))
+    await dispatch(addBlog(newBlog))
     alert("Blog added successfully!")
 
     setNewBlog({ title: "", description: "", image: "" })
