@@ -5,6 +5,7 @@ import About from "./Components/About"
 import Contact from "./Components/Contact"
 import AddBlog from "./Components/AddBlog"
 import BlogList from "./Components/BlogList"
+import Footer from "./Components/Footer"
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/blogList" element={<BlogList />} />
           <Route path="/add" element={<AddBlog />} />
         </Routes>
+        <Footer/>
       </Router>
     </div>
   )

@@ -67,3 +67,18 @@
   text-align: center;
   font-size: 1.2rem;
 }
+.blog-card p {
+  transition: all 0.3s ease;
+}
+.read-btn {
+  background-color: #0078ff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.read-btn:hover {
+  background-color: #005fcc;
+}
+

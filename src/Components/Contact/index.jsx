@@ -30,13 +30,11 @@ const Contact = () => {
         throw new Error("Failed to submit form")
       }
 
-      alert("Form submitted successfully ✅")
-
-      // Clear form after submit
+      alert("Form submitted successfully")
       setFormData({ firstName: "", lastName: "", mobile: "", email: "" })
     } catch (error) {
       console.error("Error submitting form:", error)
-      alert("Failed to submit ❌")
+      alert("Failed to submit ")
     }
   }
 

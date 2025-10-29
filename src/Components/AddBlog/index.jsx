@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { addBlog } from "../../Redux/blogSlice"
+import { addBlog, fetchBlogs } from "../../Redux/blogSlice"
 import { useNavigate } from "react-router-dom"
 import "./style.css"
 
@@ -25,9 +25,13 @@ const AddBlog = () => {
       return
     }
 
+    // ✅ Don't add id manually — json-server will auto-generate it
     await dispatch(addBlog(newBlog))
-    alert("Blog added successfully!")
 
+    // ✅ Refresh blog list after adding
+    await dispatch(fetchBlogs())
+
+    alert("Blog added successfully!")
     setNewBlog({ title: "", description: "", image: "" })
     navigate("/blogList")
   }

@@ -1,4 +1,3 @@
-import React from "react"
 import "./style.css"
 import profileImage from "../../assets/profile.png"
 

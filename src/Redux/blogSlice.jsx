@@ -52,6 +52,7 @@ export const fetchBlogs = () => async (dispatch) => {
   dispatch(fetchBlogsStart())
   try {
     const response = await fetch("http://localhost:3000/blogs")
+
     if (!response.ok) throw new Error("Failed to fetch blogs")
     const data = await response.json()
     dispatch(fetchBlogsSuccess(data))
